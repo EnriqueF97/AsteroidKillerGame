@@ -94,7 +94,7 @@ function createScene(canvas) {
   screenShake = ScreenShake();
   // skybox
   var loader = new THREE.CubeTextureLoader();
-  loader.setPath("../images/ProyectoFinal/cubemap/nebula/");
+  loader.setPath("Asteroid Killer Game/images/ProyectoFinal/cubemap/nebula/");
   var textureCube = loader.load([
     "right.png",
     "left.png",
@@ -112,7 +112,7 @@ function createScene(canvas) {
     5000
   );
   // crosshair
-  textureUrl = "../images/ProyectoFinal/crosshair.png";
+  textureUrl = "Asteroid Killer Game/images/ProyectoFinal/crosshair.png";
   texture = new THREE.TextureLoader().load(textureUrl);
   bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
   material = new THREE.MeshBasicMaterial({
@@ -136,39 +136,54 @@ function createScene(canvas) {
   asteroidMinorImpact = new THREE.Audio(listener);
   // load a sound and set it as the Audio object's buffer
   var audioLoader = new THREE.AudioLoader();
-  audioLoader.load("../sounds/asteroidExplosion.wav", function (buffer) {
-    // cannon sound while shooting
-    cannonShotSound.setBuffer(buffer);
-    cannonShotSound.setLoop(false);
-    cannonShotSound.setVolume(0.2);
-    cannonShotSound.duration = shootSpeed;
-  });
-  audioLoader.load("../sounds/asteroidImpact.ogg", function (buffer) {
-    // asteroid hitting the upper platform
-    asteroidImpactSound.setBuffer(buffer);
-    asteroidImpactSound.setLoop(false);
-    asteroidImpactSound.setVolume(1);
-  });
-  audioLoader.load("../sounds/hitOnAsteroid.wav", function (buffer) {
-    // hit on asteroid
-    asteroidHitSound.setBuffer(buffer);
-    asteroidHitSound.setLoop(false);
-    asteroidHitSound.setVolume(0.04);
-    asteroidHitSound.duration = shootSpeed;
-  });
-  audioLoader.load("../sounds/asteroidDestruction.wav", function (buffer) {
-    // destruction of an asteroid
-    asteroidDestructionSound.setBuffer(buffer);
-    asteroidDestructionSound.setLoop(false);
-    asteroidDestructionSound.setVolume(1.5);
-  });
-  audioLoader.load("../sounds/hitOnAsteroid.wav", function (buffer) {
-    // asteroid hitting the lower asteroid rock formation
-    asteroidMinorImpact.setBuffer(buffer);
-    asteroidMinorImpact.setLoop(false);
-    asteroidMinorImpact.setVolume(0.04);
-    asteroidMinorImpact.duration = 0.05;
-  });
+  audioLoader.load(
+    "Asteroid Killer Game/sounds/asteroidExplosion.wav",
+    function (buffer) {
+      // cannon sound while shooting
+      cannonShotSound.setBuffer(buffer);
+      cannonShotSound.setLoop(false);
+      cannonShotSound.setVolume(0.2);
+      cannonShotSound.duration = shootSpeed;
+    }
+  );
+  audioLoader.load(
+    "Asteroid Killer Game/sounds/asteroidImpact.ogg",
+    function (buffer) {
+      // asteroid hitting the upper platform
+      asteroidImpactSound.setBuffer(buffer);
+      asteroidImpactSound.setLoop(false);
+      asteroidImpactSound.setVolume(1);
+    }
+  );
+  audioLoader.load(
+    "Asteroid Killer Game/sounds/hitOnAsteroid.wav",
+    function (buffer) {
+      // hit on asteroid
+      asteroidHitSound.setBuffer(buffer);
+      asteroidHitSound.setLoop(false);
+      asteroidHitSound.setVolume(0.04);
+      asteroidHitSound.duration = shootSpeed;
+    }
+  );
+  audioLoader.load(
+    "Asteroid Killer Game/sounds/asteroidDestruction.wav",
+    function (buffer) {
+      // destruction of an asteroid
+      asteroidDestructionSound.setBuffer(buffer);
+      asteroidDestructionSound.setLoop(false);
+      asteroidDestructionSound.setVolume(1.5);
+    }
+  );
+  audioLoader.load(
+    "Asteroid Killer Game/sounds/hitOnAsteroid.wav",
+    function (buffer) {
+      // asteroid hitting the lower asteroid rock formation
+      asteroidMinorImpact.setBuffer(buffer);
+      asteroidMinorImpact.setLoop(false);
+      asteroidMinorImpact.setVolume(0.04);
+      asteroidMinorImpact.duration = 0.05;
+    }
+  );
 
   // model creation
   modelCreation();
@@ -179,8 +194,9 @@ function createWorld() {
   asteroidHome = new THREE.Object3D();
   ground = new THREE.Object3D();
   function asteroidBase() {
-    textureUrl = "../images/ProyectoFinal/asteroid.jpg";
-    bumpTextureUrl = "../images/ProyectoFinal/asteroidBump.jpg";
+    textureUrl = "Asteroid Killer Game/images/ProyectoFinal/asteroid.jpg";
+    bumpTextureUrl =
+      "Asteroid Killer Game/images/ProyectoFinal/asteroidBump.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
@@ -269,9 +285,10 @@ function createWorld() {
   asteroidBase();
 
   function platformFunction() {
-    textureUrl = "../images/ProyectoFinal/platform.jpg";
+    textureUrl = "Asteroid Killer Game/images/ProyectoFinal/platform.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
-    bumpTextureUrl = "../images/ProyectoFinal/platform_specular.png";
+    bumpTextureUrl =
+      "Asteroid Killer Game/images/ProyectoFinal/platform_specular.png";
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -321,9 +338,9 @@ function createWorld() {
     // gun wrapper
     gun = new THREE.Object3D();
     // base
-    textureUrl = "../images/ProyectoFinal/base.jpg";
+    textureUrl = "Asteroid Killer Game/images/ProyectoFinal/base.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
-    bumpTextureUrl = "../images/ProyectoFinal/base.jpg";
+    bumpTextureUrl = "Asteroid Killer Game/images/ProyectoFinal/base.jpg";
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -356,9 +373,10 @@ function createWorld() {
     gun.add(movingGun);
 
     // sphere
-    textureUrl = "../images/ProyectoFinal/sphere.jpg";
+    textureUrl = "Asteroid Killer Game/images/ProyectoFinal/sphere.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
-    bumpTextureUrl = "../images/ProyectoFinal/sphere_specular.png";
+    bumpTextureUrl =
+      "Asteroid Killer Game/images/ProyectoFinal/sphere_specular.png";
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -396,9 +414,10 @@ function createWorld() {
     }
 
     // cannon
-    textureUrl = "../images/ProyectoFinal/sphere.jpg";
+    textureUrl = "Asteroid Killer Game/images/ProyectoFinal/sphere.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
-    bumpTextureUrl = "../images/ProyectoFinal/sphere_specular.png";
+    bumpTextureUrl =
+      "Asteroid Killer Game/images/ProyectoFinal/sphere_specular.png";
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -444,7 +463,7 @@ function createWorld() {
   createCannon();
 
   function planets() {
-    textureUrl = "../images/sun.jpg"; // sun
+    textureUrl = "Asteroid Killer Game/images/sun.jpg"; // sun
     texture = new THREE.TextureLoader().load(textureUrl);
     material = new THREE.MeshBasicMaterial({ map: texture });
 
@@ -462,9 +481,9 @@ function createWorld() {
     sun.add(sunlight);
     world.add(sun);
 
-    textureUrl = "../images/earth_atmos_2048.jpg"; //                                                          earth and moon
+    textureUrl = "Asteroid Killer Game/images/earth_atmos_2048.jpg"; //                                                          earth and moon
     texture = new THREE.TextureLoader().load(textureUrl);
-    bumpTextureUrl = "../images/earthBump.jpg";
+    bumpTextureUrl = "Asteroid Killer Game/images/earthBump.jpg";
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -476,9 +495,9 @@ function createWorld() {
     earth = new THREE.Mesh(geometry, material);
     earth.receiveShadow = true;
     earthGroup.add(earth);
-    textureUrl = "../images/moon_1024.jpg";
+    textureUrl = "Asteroid Killer Game/images/moon_1024.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
-    bumpTextureUrl = "../images/moon_bump.jpg";
+    bumpTextureUrl = "Asteroid Killer Game/images/moon_bump.jpg";
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -495,9 +514,9 @@ function createWorld() {
     world.add(earthGroup);
 
     //                                                                              mars
-    textureUrl = "../images/marsmap1k.jpg";
+    textureUrl = "Asteroid Killer Game/images/marsmap1k.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
-    bumpTextureUrl = "../images/marsbump1k.jpg";
+    bumpTextureUrl = "Asteroid Killer Game/images/marsbump1k.jpg";
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -515,9 +534,9 @@ function createWorld() {
     world.add(marsRotation);
 
     //                                                                          saturn
-    textureUrl = "../images/saturnmap.jpg";
+    textureUrl = "Asteroid Killer Game/images/saturnmap.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
-    bumpTextureUrl = "../images/uranusBump.jpg";
+    bumpTextureUrl = "Asteroid Killer Game/images/uranusBump.jpg";
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -529,7 +548,7 @@ function createWorld() {
     saturn.castShadow = true;
     saturn.rotation.x = Math.PI / 2;
     // ring
-    textureUrl = "../images/saturnringcolor.jpg";
+    textureUrl = "Asteroid Killer Game/images/saturnringcolor.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -548,7 +567,7 @@ function createWorld() {
     ring.receiveShadow = true;
     // moons
     geometry = new THREE.SphereGeometry(0.02, 20, 20);
-    textureUrl = "../images/saturnmap.jpg";
+    textureUrl = "Asteroid Killer Game/images/saturnmap.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
     material = new THREE.MeshPhongMaterial({ map: texture });
     moon1 = new THREE.Mesh(geometry, material);
@@ -580,9 +599,9 @@ function createWorld() {
     world.add(saturnGroup);
 
     //                                                                                          uranus
-    textureUrl = "../images/uranusmap.jpg";
+    textureUrl = "Asteroid Killer Game/images/uranusmap.jpg";
     texture = new THREE.TextureLoader().load(textureUrl);
-    bumpTextureUrl = "../images/uranusBump.jpg";
+    bumpTextureUrl = "Asteroid Killer Game/images/uranusBump.jpg";
     bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
     material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -1057,9 +1076,9 @@ document.addEventListener(
 
 function modelCreation() {
   // asteroid
-  textureUrl = "../images/asteroid.jpg";
+  textureUrl = "Asteroid Killer Game/images/asteroid.jpg";
   texture = new THREE.TextureLoader().load(textureUrl);
-  bumpTextureUrl = "../images/asteroidBump.jpg";
+  bumpTextureUrl = "Asteroid Killer Game/images/asteroidBump.jpg";
   bumpTexture = new THREE.TextureLoader().load(bumpTextureUrl);
   material = new THREE.MeshPhongMaterial({
     map: texture,
